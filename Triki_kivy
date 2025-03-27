@@ -1,0 +1,34 @@
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+
+class Triki (App):
+
+    def build (self):
+        tablero = BoxLayout( orientation="vertical")
+
+        fila = BoxLayout (orientation = "horizontal")
+        
+        tablero.add_widget (fila)
+
+        for i in range(3):
+            casilla = Button (text = str(i))
+            casilla.bind (on_press = self.seleccionar)
+
+            fila.add_widget (casilla)
+
+        return tablero
+    
+    def seleccionar (self, sender):
+
+        es_el_primer_jugador = True 
+        es_el_primer_jugador = not(es_el_primer_jugador)
+
+        print ("Has seleccionado la casilla : #" + sender.text)
+
+
+Triki().run()
+    
+
+
+        
