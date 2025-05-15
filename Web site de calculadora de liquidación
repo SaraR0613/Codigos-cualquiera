@@ -1,0 +1,8 @@
+@app.route('/compra')      
+def compra():
+    return render_template('compra.html')
+
+@app.route('/calcular_cuota')
+def calcular_cuota():
+    compra = request.args["compra"]
+    return "La compra fue de : " + compra
